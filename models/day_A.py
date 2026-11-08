@@ -5,7 +5,7 @@ from decimal import Decimal
 from models.day import Day
 
 
-@dataclass
+@dataclass(frozen=True)
 class DayA(Day[time]):
     workplace: str
     break_time: timedelta

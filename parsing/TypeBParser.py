@@ -5,7 +5,10 @@ from decimal import Decimal
 
 from models.day_B import DayB
 from models.report import Report
+from models.report_type import ReportType
+
 from parsing.BaseParser import ReportParser
+from parsing.summary_build import build_summary
 
 
 class ReportParserB(ReportParser):
@@ -67,11 +70,13 @@ class ReportParserB(ReportParser):
 
             if day_record is not None:
                 days.append(day_record)
-
+        summary = build_summary(tuple(days))
         return Report(
             employee_name=employee_name,
-            days=days,
+            report_type=ReportType.B,
+            days=tuple(days),
             company_name=None,
+            summary=summary,
         )
 
     @staticmethod

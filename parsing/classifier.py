@@ -1,5 +1,7 @@
+from models.report_type import ReportType
 
-def identify_report_type(raw_text: str) -> str:
+
+def identify_report_type(raw_text: str) -> ReportType:
     """Identify report type A or B using weighted feature scoring."""
 
     print("OCR text received by classifier:")
@@ -39,10 +41,10 @@ def identify_report_type(raw_text: str) -> str:
 
     # Require a meaningful score and a clear winner
     if check_a > check_b:
-        return "A"
+        return ReportType.A
 
     if check_b > check_a:
-        return "B"
+        return ReportType.B
 
-    return "UNKNOWN"
+    return ReportType.UNKNOWN
 

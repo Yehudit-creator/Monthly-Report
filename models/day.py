@@ -6,7 +6,7 @@ from typing import Generic, TypeVar
 T = TypeVar("T")
 
 
-@dataclass
+@dataclass(frozen=True)
 class Day(Generic[T]):
     date: date
     day: str

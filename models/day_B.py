@@ -5,6 +5,6 @@ from decimal import Decimal
 from models.day import Day
 
 
-@dataclass
+@dataclass(frozen=True)
 class DayB(Day[time | None]):
     notes: str
